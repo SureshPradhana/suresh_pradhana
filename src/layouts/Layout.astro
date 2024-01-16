@@ -1,10 +1,4 @@
 ---
-interface Props {
-	title: string;
-}
-
-const { title } = Astro.props;
-
 const navItems = [
 	{
 		path: "/blog",
@@ -21,7 +15,6 @@ const navItems = [
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
 	</head>
 	<body>
 		<header>
@@ -31,19 +24,21 @@ const navItems = [
 			</a>
 
 			<!-- nav -->
-			<nav>
+			<nav class="nav">
 				{
 					navItems.map((item) => {
 						return <a href={item.path}>{item.label}</a>;
 					})
 				}
 			</nav>
+			
 		</header>
 
 		<slot />
 	</body>
 </html>
 <style is:global>
+
 	:root {
 		--accent: 136, 58, 234;
 		--background: #2e2e2e;
@@ -58,4 +53,98 @@ const navItems = [
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
 			DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 	}
+	* {
+		box-sizing: border-box;
+		line-height: 1.5;
+	}
+
+a{
+	@apply border-b-white border-b-2 hover:border-b-2 hover:border-b-orange-300;
+}
+h2{
+	@apply text-xl;
+
+}
+
+
+h2 > a{
+	@apply border-b-0 hover:border-b-0;
+}
+time{
+	color:#ccc;
+}
+
+h1{
+	@apply text-2xl;
+}
+p{
+	@apply text-gray-200 py-1 m-1;
+}
+
+pre{
+	@apply bg-gray-900 p-2 m-2 rounded-lg ;
+}
+
+strong{
+	font-weight:500;
+}
+
+
+blockquote {
+  background: #E6F2E6;
+  border-left: 3px solid #408040;
+  font-style: italic;
+  padding-left: 5px;
+  margin-left: 2px;
+}
+pre {
+  border-left: 1px solid #444444;
+  padding: 5px;
+  margin-left: 2px;
+}
+pre code{
+background: none;
+}
+code {
+  font-family: JetBrains Mono NL, Courier New, Monospaced;
+  font-size: 0.8em;
+  background: #24292e;
+  padding: 2px 5px;
+  border-radius: 2px;
+  @apply text-orange-300;
+}
+table {
+  border-spacing: 0px;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+th, td {
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
+}
+th {
+  background: #D4D4D4;
+  font-weight: 600;
+}
+ul {
+  margin-left-ltr: 20px;
+  margin-right-rtl: 20px;
+}
+ol {
+  margin-left-ltr: 25px;
+  margin-right-rtl: 25px;
+}
+
+
+
+</style>
+<style>
+header{
+	@apply flex flex-row justify-between items-center space-x-4 ;
+}
+body{
+	@apply mx-auto px-4 py-2 max-w-screen-md;
+}
+
+
 </style>

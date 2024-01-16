@@ -1,0 +1,17 @@
+
+/* style.module.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.coder {
+  /* You can use Tailwind CSS classes here */
+  @apply text-blue-500 bg-yellow-200 p-4;
+}
+
+code{
+ apply: text-blue-500 bg-yellow-200 p-4;
+}
+pre{
+	@apply bg-red-400 !important;
+}

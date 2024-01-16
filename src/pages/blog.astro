@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import style from "../styles/style.module.css";
 
 const blogPosts = await getCollection("blog");
 ---
@@ -25,16 +26,19 @@ const blogPosts = await getCollection("blog");
 		}
 	</section>
 
-	<p class="feed">
-		<a href="/rss.xml"
-			>:
-			<span role="img" aria-label="satallite dish">📡</span>
-			<span class="link-text">Subscribe to the RSS Feed</span>
-		</a>
-	</p>
+	<!-- <p class="feed"> -->
+	<!-- 	<a href="/rss.xml" -->
+	<!-- 		> -->
+	<!-- 		<span role="img" aria-label="satallite dish">📡</span> -->
+	<!-- 		<span class="link-text">Subscribe to the RSS Feed</span> -->
+	<!-- 	</a> -->
+	<!-- </p> -->
 </Layout>
 
 <style>
+	.blog-entries {
+		@apply my-8;
+	}
 	.post {
 		margin: 0;
 	}
