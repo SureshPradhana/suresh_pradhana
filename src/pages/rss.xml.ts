@@ -10,8 +10,8 @@ export async function GET(context:AstroConfig){
     const blog =await getCollection('blog');
 
     return rss({
-        title:'The sndwch blog',
-        description:'All sandwich news, all the time',
+        title:'blog title',
+        description:'blog description',
         site:context.site,
         items:blog.map((post)=>{
             return {

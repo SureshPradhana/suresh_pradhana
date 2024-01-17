@@ -4,6 +4,6 @@ import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://suresh-pradhana.vercel.app/",
+  site: 'https://suresh-pradhana.vercel.app/',
   integrations: [tailwind()]
 });
