@@ -58,6 +58,31 @@ html {
 body{
  background-color: var(--background);
   color:var(--wh);
+  max-width:800px;
+  margin:0 auto;
 }
-
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--decorative);
+  font-weight: 400;
+  line-height: 1.2;
+  color:var(--wh);
+}
+p{
+  color:var(--color-fg-default);
+}
+time{
+  color:#605d5d;
+}
+h2{
+  font-size:var(--h2);
+}
+.feed a{
+  color:var(--color-fg-default);
+  text-decoration: none;
+  border-bottom:none;
+}
+.feed a:hover{
+  color:white;
+  border-bottom:none;
+}
 
