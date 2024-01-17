@@ -2,6 +2,62 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-pre{
-  @apply bg-red-400 !important;
+:root {
+  /* colors */
+ --bg:#2e2e2e;
+  --lbg:#444444;
+  --or:#26292c;
+  --wh:#f3f4f6;
+  --time:#525762;
+  --white: #ffffff;
+  --green: #749d4c;
+  --coffee: #43281c;
+  --vanilla: #f1e3d3;
+  --lemon: #fbf2c0;
+  --mocha: #7f4f24;
+  --tan: #ddb892;
+  --blue: #3e80b6;
+  --background: #2E2E2E;
+  --stroke: #444444;
+  --accent: #FF6F61;
+  --code:#3D3F47;
+  --color-fg-default:#c9d1d9;
+
+  /* fonts */
+  --decorative: "monospace", "Montserrat", sans-serif;
+  --sans: "monospace", "Open Sans", sans-serif;
+
+  /* font scale */
+  --base-size: 0.6rem;
+  --scale: 1.25;
+  --h6: var(--base-size);
+  --xl: calc(var(--h1)*var(--scale)*var(--scale));
+  --lg: calc(var(--h1)*var(--scale));
+  --h1: calc(var(--h2)*var(--scale));
+  --h2: calc(var(--h3)*var(--scale));
+  --h3: calc(var(--h4)*var(--scale));
+  --h4: calc(var(--h5)*var(--scale));
+  --h5: calc(var(--h6)*var(--scale));
+  --h6: var(--base-size);
+  --small: calc(var(--base-size)/ var(--scale));
+
+
 }
+
+/* add border box sizing to the page */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+ 
+}
+body{
+ background-color: var(--background);
+  color:var(--wh);
+}
+
+

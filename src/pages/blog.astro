@@ -37,7 +37,8 @@ const blogPosts = await getCollection("blog");
 
 <style>
 	.blog-entries {
-		@apply my-8;
+      margin: 0 auto;
+
 	}
 	.post {
 		margin: 0;
@@ -82,5 +83,9 @@ const blogPosts = await getCollection("blog");
 
 	.link-text {
 		text-decoration: underline;
+	}
+	time {
+		font-size: 0.875rem;
+		color:var(--stroke);
 	}
 </style>
