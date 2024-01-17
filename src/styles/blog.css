@@ -1,6 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
 
 :root {
   /* colors */
@@ -43,35 +40,17 @@
 
 
 }
-
-/* add border box sizing to the page */
-html {
-  box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
- 
-}
-body{
- background-color: var(--background);
+h1,h2,h3,h4,h5,h6{
+  font-family: var(--decorative);
+  font-weight: 400;
+  line-height: 1.2;
   color:var(--wh);
-  max-width:800px;
-  margin:0 auto;
-  padding:0 1.2rem;
 }
-.feed a{
+p{
   color:var(--color-fg-default);
-  text-decoration: none;
-  border-bottom:none;
 }
-.feed a:hover{
-  color:white;
-  border-bottom:none;
-}
-time{
-  color:#605d5d;
+
+h2{
+  font-size:var(--h2);
 }
 
