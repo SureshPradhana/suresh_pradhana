@@ -60,6 +60,7 @@ body{
   color:var(--wh);
   max-width:800px;
   margin:0 auto;
+  padding:0 1.2rem;
 }
 h1,h2,h3,h4,h5,h6{
   font-family: var(--decorative);
