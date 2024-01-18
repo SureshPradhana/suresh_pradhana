@@ -61,6 +61,9 @@ body{
   max-width:800px;
   margin:0 auto;
   padding:0.4rem 1.2rem;
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
 .feed a{
   color:var(--color-fg-default);

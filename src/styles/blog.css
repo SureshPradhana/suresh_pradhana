@@ -53,4 +53,6 @@ p{
 h2{
   font-size:var(--h2);
 }
-
+.blog-entries{
+  flex: 1;
+}

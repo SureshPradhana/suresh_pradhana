@@ -3,9 +3,9 @@ import { getCollection } from "astro:content";
 import Bloglayout from "../../layouts/BlogLayout.astro";
 import '../../styles/markdown.css';
 export async function getStaticPaths() {
-	const refPosts = await getCollection("refcards");
+	const notesPosts = await getCollection("notes");
 
-	return refPosts.map((post) => {
+	return notesPosts.map((post) => {
 		return {
 			params: { slug: post.slug },
 			props: { post },
@@ -25,7 +25,7 @@ const { Content } = await post.render();
 	</time>
 	<Content />
 	</div>
-
+	
 </Bloglayout>
 
 <style>
