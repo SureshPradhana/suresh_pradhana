@@ -60,7 +60,7 @@ body{
   color:var(--wh);
   max-width:800px;
   margin:0 auto;
-  padding:0 1.2rem;
+  padding:0.4rem 1.2rem;
 }
 .feed a{
   color:var(--color-fg-default);
