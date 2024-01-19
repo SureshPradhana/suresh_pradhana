@@ -1,0 +1,33 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout>
+	<div class="not-found">
+		<h1>Page not found (404)</h1>
+
+		<p>Looks like the page you requested doesn’t exist.</p>
+		<p><a href="/">&larr; back home</a></p>
+	</div>
+</Layout>
+<style>
+	.not-found {
+		margin: 0 auto;
+		max-width: 500px;
+		text-align: center;
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	.not-found h1 {
+		font-size: 2rem;
+	}
+
+	.not-found img {
+		display: block;
+		margin: 1rem 0 0;
+		width: 100%;
+	}
+</style>

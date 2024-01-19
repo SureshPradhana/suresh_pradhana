@@ -60,5 +60,5 @@ export async function GET(context: AstroConfig) {
     const allFeeds = [notesFeed, refcardsFeed, blogsFeed];
     console.log(allFeeds);
     return blogsFeed;
-   
+
 }

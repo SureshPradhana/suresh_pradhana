@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Astro description" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    </head>
+    <body>
+        <nav>
+            <a id="backButton" href="">&larr; Back</a>
+        </nav>
+        <slot />
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const backButton = document.getElementById("backButton");
+                let ref = window.location.href
+                    .split("/")
+                    .slice(0, -1)
+                    .join("/");
+                backButton.href = ref;
+            });
+        </script>
+    </body>
+</html>
+
+<style>
+    nav {
+        color: var(--color-fg-default);
+    }
+    nav a {
+        color: var(--color-fg-default);
+        text-decoration: none;
+        border: none;
+    }
+</style>
