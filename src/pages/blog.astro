@@ -4,9 +4,11 @@ import Layout from "../layouts/Layout.astro";
 import '../styles/global.css';
 import '../styles/blog.css';
 const blogPosts = await getCollection("blog");
+import  PathUi  from "../components/svelte/PathUi.svelte";
 ---
 
 <Layout>
+	<PathUi path={["Home", "Blog"]} />
 	<section class="blog-entries">
 		{
 			blogPosts.map((post) => {
