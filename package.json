@@ -15,6 +15,7 @@
     "@astrojs/svelte": "^5.0.3",
     "@astrojs/tailwind": "^5.1.0",
     "astro": "^4.1.2",
+    "canvas-sketch": "^0.7.7",
     "markdown-it": "^14.0.0",
     "sanitize-html": "^2.11.0",
     "svelte": "^4.2.9",
