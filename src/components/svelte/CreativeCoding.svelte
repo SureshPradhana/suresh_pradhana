@@ -5,16 +5,21 @@
 			link: "creative_coding/wallDrawing11",
 			description: "A wall divided horizontally and vertically into four equal parts. Within each part, three of the four kinds of lines are superimposed."
 		},	
+
+		{
+			name: "sphere",
+			link: "creative_coding/sphere",
+			description: "A sphere with a Threejs"
+		}
 	
 
 	]
 </script>
 
 <div>
-	<h1>Projects!</h1>
+	<h1>creative coding solutions!</h1>
 	<p>
-		Here are some semi-completed tech projects I worked on during the
-		process of learning
+		Here are my creative coding solutions. I am using canvas-sketch and Threejs to create these solutions.
 	</p>
 	<ul>
 		{#each projects as project (project) }
