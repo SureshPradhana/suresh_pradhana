@@ -171,12 +171,14 @@ import "../../styles/global.css";
                 // Draw scene with our camera
                 renderer.render(scene, camera);
             },
+            
             // Dispose of WebGL context (optional)
             unload() {
                 renderer.dispose();
             },
         };
     };
+
 
     canvasSketch(sketch, settings);
 </script>
