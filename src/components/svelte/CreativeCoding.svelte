@@ -1,18 +1,20 @@
 <script>
+	import walldrawing11 from "../../images/walldrawing11.png";
+	import sphere from "../../images/sphere.png";
 	let projects = [
 		{
 			name: "wall Drawing 11 (1969)",
 			link: "creative_coding/wallDrawing11",
 			description:
 				"A wall divided horizontally and vertically into four equal parts. Within each part, three of the four kinds of lines are superimposed.",
-			imageurl: "./public/images/walldrawing11.png",
+			imageurl: walldrawing11,
 		},
 
 		{
 			name: "sphere",
 			link: "creative_coding/sphere",
 			description: "A sphere with a Threejs",
-			imageurl: "./public/images/sphere.png",
+			imageurl:sphere,
 		},
 	];
 </script>
@@ -37,7 +39,7 @@
 		{#each projects as project (project)}
 			<div class="grid-item">
 				<a href={project.link}>
-					<img src={project.imageurl} alt={project.name} />
+					<img src={project.imageurl.src} alt={project.name} />
 				</a>
 			</div>
 		{/each}
