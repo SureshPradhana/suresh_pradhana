@@ -1,0 +1,126 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+---
+
+<Layout title="wall Drawing">
+    <main>
+        <div id="wall-wrapper">
+            <div class="info">
+                <details id="wallLabel">
+                    <summary>
+                        <strong>Moon</strong><br />
+                    </summary>
+                    <p style="font-size: 150%">"A Half Moon"</p>
+                    <p>
+                        <em style="font-size: 80%"
+                            >HTML, CSS and JavaScript with canvas-sketch</em
+                        >
+                    </p>
+                </details>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<script>
+    import { canvasSketch } from "../../scripts/imports.js";
+    const settings = {
+        parent: document.querySelector("#wall-wrapper"),
+        dimensions: [1024, 1024],
+    };
+
+    const sketch = () => {
+        const center = settings.dimensions.map((d) => d / 2);
+
+        return ({ context, width, height }) => {
+            context.fillStyle = "#2e2e2e";
+            context.strokeStyle = "brown"; // Change this to the color you want for the lines
+
+            context.arc(
+                center[0] - width /1.1,
+                center[1],
+                width / 1,
+                0,
+                Math.PI * 2,
+                true,
+            ); // Inner edge
+            context.fillStyle = "#2e2e2e"; // Change this to the color you want for the moon
+            context.fill();
+            context.restore();
+
+            context.globalCompositeOperation = "source-atop";
+            context.beginPath();
+            context.arc(center[0], center[1], width / 3, 0, Math.PI * 2, false); // Outer edge
+            context.fillStyle = "#F6F1D5"; // Change this to the color you want for the moon
+            context.fill();
+            context.restore();
+            // Draw the craters
+            context.globalCompositeOperation = "source-atop";
+            const numberOfCraters = 1000; // Change this to the number of craters you want
+            for (let i = 0; i < numberOfCraters; i++) {
+                // Calculate the position of the crater
+                const angle = Math.random() * Math.PI * 2;
+                const distance = (Math.random() * width) / 3;
+                const x = center[0] + Math.cos(angle) * distance;
+                const y = center[1] + Math.sin(angle) * distance;
+
+                // Calculate the size of the crater
+                const size = ((Math.random() * width) / 20) * Math.random() * 0.1;
+
+                // Draw the crater
+                context.beginPath();
+                context.arc(x, y, size, 0, Math.PI * 2, false);
+                // context.fillStyle = "#444444"; // Change this to the color you want for the craters
+                context.fillStyle = "rgba(00, 00, 00, 0.6)";
+                context.fill();
+            }
+        };
+    };
+
+    canvasSketch(sketch, settings);
+</script>
+
+<style is:global>
+    /* canvas {
+        width: 80%;
+        height: 80%;
+    } */
+</style>
+
+<style>
+    main {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #wall-wrapper {
+        width: 100%;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: 1rem;
+    }
+    #wall-wrapper :global(canvas) {
+        width: 60%;
+        height: 60%;
+    }
+    .info {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        width: 250px;
+        margin: 0px;
+        padding: 10px;
+        outline: 1px solid #ccc;
+        color: #777;
+        background: white;
+        font-size: 80%;
+    }
+</style>

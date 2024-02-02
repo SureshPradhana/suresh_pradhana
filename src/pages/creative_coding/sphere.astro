@@ -27,19 +27,14 @@ import "../../styles/global.css";
 </Layout>
 
 <script>
-    import * as THREE from "three";
+   import {THREE,canvasSketch,random,palettes} from "../../scripts/imports.js";
 
-    import { canvasSketch } from "canvas-sketch";
-    import { random } from "canvas-sketch-util";
-    import palettes from "nice-color-palettes";
 
     const settings = {
         parent: document.getElementById("wall-wrapper"),
         animate: true,
-        dimensions: [1024, 1280],
-        // Get a WebGL canvas rather than 2D
+        dimensions: [1024, 1024],
         context: "webgl",
-        // Turn on MSAA
         attributes: { antialias: true },
     };
 
@@ -171,7 +166,7 @@ import "../../styles/global.css";
                 // Draw scene with our camera
                 renderer.render(scene, camera);
             },
-            
+
             // Dispose of WebGL context (optional)
             unload() {
                 renderer.dispose();

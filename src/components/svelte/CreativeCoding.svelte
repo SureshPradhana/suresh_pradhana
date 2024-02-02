@@ -1,6 +1,7 @@
 <script>
 	import walldrawing11 from "../../images/walldrawing11.png";
 	import sphere from "../../images/sphere.png";
+	import moon from "../../images/moon.png";
 	let projects = [
 		{
 			name: "wall Drawing 11 (1969)",
@@ -16,25 +17,23 @@
 			description: "A sphere with a Threejs",
 			imageurl:sphere,
 		},
+		// {
+		// 	name: "wall Gallery",
+		// 	link: "creative_coding/wallGallery",
+		// 	description: "A gallery of wall drawings",
+		// 	imageurl: walldrawing11,
+		// },
+		{
+			name:"moon",
+			link:"creative_coding/moon",
+			description:"A moon with canvas Sketch",
+			imageurl:moon,
+		}
 	];
 </script>
 
 <div>
 	<h1>creative coding solutions!</h1>
-
-	<!-- <p>
-		Here are my creative coding solutions. I am using canvas-sketch and Threejs to create these solutions.
-	</p>
-	<ul>
-		TODO instead of using texts use images as grid and try they should be dynamically generated
-		{#each projects as project (project) }
-			<li>
-			<a href={project.link}>{project.name}</a>: {project.description}
-		</li>
-			
-		{/each}
-	</ul> -->
-
 	<div class="grid-wrapper">
 		{#each projects as project (project)}
 			<div class="grid-item">
