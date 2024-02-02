@@ -95,6 +95,7 @@
 	@media (max-width: 600px) {
 		.grid-wrapper {
 			grid-template-columns: repeat(2, auto);
+			grid-template-rows:repeat(2, auto);
 		}
 	}
 </style>
