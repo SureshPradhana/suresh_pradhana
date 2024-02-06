@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Projects from "../components/svelte/Projects.svelte";
+import Certifications from "../components/svelte/Certifications.svelte";
 import "../styles/global.css";
 ---
 
 <Layout title="Welcome to Astro.">
 	<div class="projects-wrapper">
 		<Projects />
+		<Certifications />
 	</div>
 </Layout>
 
@@ -20,4 +22,14 @@ import "../styles/global.css";
 		font-size: 20px;
 		line-height: 1.6;
 	}
+
+	:global(.projects-wrapper) {
+		display: flex;
+		flex-direction: column;
+		flex:1 0 auto;
+	}
+	:global(.projects-wrapper > div ){
+		margin: 0.5rem 0;
+	}
+
 </style>

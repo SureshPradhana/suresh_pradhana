@@ -93,7 +93,7 @@
 	}
 	ul {
 		list-style: circle;
-		margin: 0.5rem 0 0 2rem;
+		margin: 0.5rem 0 0 1.2rem;
 		padding: 0;
 	}
 	a {

@@ -5,7 +5,8 @@ import "../../styles/global.css";
 ---
 
 <Layout title="Welcome to Astro.">
-	<div class="projects-wrapper">
+	<div class="wrapper">
+
 		<CreativeCoding />
 	</div>
 </Layout>
@@ -13,11 +14,17 @@ import "../../styles/global.css";
 <style>
 	main {
 		margin: auto;
-		padding: 1rem;
+		padding: 1.2rem;
 		width: 800px;
 		max-width: calc(100% - 2rem);
 		color: white;
 		font-size: 20px;
 		line-height: 1.6;
+	}
+	.wrapper{
+		display: flex;
+		justify-content: center;
+		flex:1 0 auto;
+		margin:0.5rem 0 ;
 	}
 </style>
