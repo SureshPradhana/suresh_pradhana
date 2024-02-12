@@ -90,7 +90,7 @@ h1,h2,h3,h4,h5,h6{
  padding: 0.5rem 0;
 }
 li{
-  padding:0.2rem 0;
+  padding:0.1rem 0;
 }
 h1,h2,h3,h4,h5,h6,p,pre,code,blockquote{
   margin-bottom: var(--base-size);

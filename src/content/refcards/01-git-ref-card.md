@@ -1,5 +1,5 @@
 ---
-title: Git Cheat Sheet
+title: Git Reference Card 
 slug: git-cheet-sheet
 date: 2023-08-28
 description: >
@@ -8,15 +8,15 @@ description: >
 
 
 
-# git
+# git basics
 
-`git --version`
+`git --version` check git version
 
-`git config --list`  
+`git config --list` check configuration   
 
-`git config --global user.name "suresh"` 
+`git config --global user.name "suresh"` set user 
 
-`git config --global user.email "temp@gmail.com"`  
+`git config --global user.email "temp@gmail.com"`  set email
 
 `git init` initialize git repository
 
@@ -28,7 +28,7 @@ description: >
 
 `git reset .`   untrack changes
 
-`git add main.ts` add sing file
+`git add main.ts` add single file
 
 `git commit -m "write message here"`  commits with message 
 
