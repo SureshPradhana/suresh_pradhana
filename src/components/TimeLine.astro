@@ -1,0 +1,109 @@
+---
+import Tweet from "./Tweet.astro";
+
+const items = [
+  {
+    dateinfo: "November 23 2023",
+    title: "Start of 100 Days of Code",
+    content: "Began participating in daily programming challenges to improve problem-solving skills.",
+  },
+  {
+    dateinfo: "December 1, 2023",
+    title: "Learned Rust Basics",
+    content: "Learned syntax and basics of Rust programming language through Frontend Masters course 'Rust for TypeScript Developers' by instructor Steve Kinney."
+  },
+  {
+    dateinfo: "December 5, 2023",
+    title: "Improved CSS Skills",
+    content: "Enhanced CSS skills by completing a CSS project from Frontend Masters by instructor Jennifer Wadella (@jen4web)."
+  },
+    {
+    dateinfo: "December 9 2023",
+    title: "JavaScriptmas",
+    content: "Participated in JavaScriptmas challenges, solving coding puzzles and strengthening JavaScript skills."
+  },
+
+  {
+    dateinfo: "December 12, 2023",
+    title: "Built Markdown Previewer with Svelte",
+    content: "Built a Markdown Previewer using Svelte, learning Svelte concepts and improving front-end development skills."
+  },
+  {
+    dateinfo: "December 13 2023",
+    title: "Advent of Svelte",
+    content: "completed 24 challenges in the Advent of Svelte, mastering Svelte concepts and improving front-end development skills."},
+
+	{
+    dateinfo: "January 1 2024",
+    title: "Built Personal Portfolio with Astro",
+    content: "Developed a personal portfolio with blog and reference cards using Astro framework, gaining insights into server-side rendering and enhancing front-end development skills."
+  },
+  {
+    dateinfo: "January 18 2024",
+    title: "Learning svelte and SvelteKit",
+    content: "Dived into learning SvelteKit and build  emoji matching game and svelteflix  ."
+  },
+  {
+    dateinfo: "Feb 1 2024",
+    title: "Added Creative Coding Page to Portfolio",
+    content: "studied concepts in creative coding,experimenting with simple creative coding	arts and exploring the intersection of code and art, Enhanced the personal portfolio by adding a creative coding page, showcasing creative coding arts and projects created with code."
+  },
+  {
+    dateinfo: "February 5, 2024",
+    title: "Learned about Vite",
+    content: "Explored Vite, a build tool for modern web development, and learned how to use it to streamline the development workflow."
+  },
+  {
+    dateinfo: "February 8, 2024",
+    title: "Explored Go Basics",
+    content: "Studied basics in Go programming language, understanding its syntax and features to build a simple API with standard libraries."
+  },
+   {
+    dateinfo: "February 10 2024",
+    title: "Exploring Databases",
+    content: "Studied databases mongodb, postgressql, neo4j , focusing on CRUD operations, database management, and server-side scripting."
+  },
+   {
+    dateinfo: "February 12, 2024",
+    title: "Learned about Servers, Hashing, SSH, Nginx, CI/CD, and Related Topics",
+    content: "Explored topics related to servers such as hashing, SSH, Nginx, CI/CD, and related topics, gaining insights into server management and deployment strategies."
+  },
+  {
+    dateinfo: "February 24, 2024",
+    title: "Explored AWS, S3, CloudFront, Docker, and Containerization",
+    content: "Studied AWS services including S3 and CloudFront, and explored Docker and containerization concepts, understanding their usage in modern web development and deployment."
+  },
+    {
+    dateinfo: "March 1, 2024",
+    title: "Notes Web App",
+    content: "Developed a notes web application as a project milestone, applying the skills learned during the 100 Days of Code challenge."
+  },
+   {
+    dateinfo: "March 15, 2024",
+    title: "Added Timeline Route to Portfolio",
+    content: "Added a timeline route to the portfolio, showcasing the progress made during the 100 Days of Code challenge and other coding milestones."
+  },
+  {
+    dateinfo: "March 15, 2024",
+    title: "End of 100 Days of Code",
+    content: "Successfully completed the 100 Days of Code challenge, achieving coding goals and enhancing programming proficiency."
+  }
+];
+
+
+---
+
+<div>
+
+<ol class="relative border-s border-gray-200 dark:border-gray-700">
+ 
+       {items.slice().reverse().map((item, index) => (
+  <Tweet key={index} item={item} />
+))}
+
+</ol>
+</div>
+
+
+
+

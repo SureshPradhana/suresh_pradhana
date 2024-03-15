@@ -19,6 +19,7 @@
     "canvas-sketch-cli": "^1.11.21",
     "canvas-sketch-util": "^1.10.0",
     "feather-icons": "^4.29.1",
+    "flowbite": "^2.3.0",
     "glslify": "^7.1.1",
     "markdown-it": "^14.0.0",
     "nice-color-palettes": "^3.0.0",

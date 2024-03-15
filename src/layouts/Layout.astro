@@ -16,6 +16,10 @@ const navItems = [
 	{
 		path:"/creative_coding",
 		label:"CreativeCoding"
+	},
+	{
+		path:"/timeline",
+		label:"Timeline"
 	}
 ];
 import Footer from "../components/svelte/Footer.svelte";
@@ -31,7 +35,8 @@ import Footer from "../components/svelte/Footer.svelte";
 		<meta name="generator" content={Astro.generator} />
     <!-- Now you can use the library like normal -->
 	</head>
-	<body>
+	<body>	<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
 		<header>
 			<a href="/" rel="home">
 				<span role="img" aria-label="suresh"></span>
@@ -52,7 +57,8 @@ import Footer from "../components/svelte/Footer.svelte";
 		<footer>
 			<Footer />
 		</footer>
-		
+	
+
 	</body>
 </html>
 <style is:global>
