@@ -1,11 +1,10 @@
-
 :root {
   /* colors */
- --bg:#2e2e2e;
-  --lbg:#444444;
-  --or:#26292c;
-  --wh:#f3f4f6;
-  --time:#525762;
+  --bg: #1c1c1c;
+  --lbg: #444444;
+  --or: #26292c;
+  --wh: #f3f4f6;
+  --time: #525762;
   --white: #ffffff;
   --green: #749d4c;
   --coffee: #43281c;
@@ -14,11 +13,11 @@
   --mocha: #7f4f24;
   --tan: #ddb892;
   --blue: #3e80b6;
-  --background: #2E2E2E;
+  --background: #1c1c1c;
   --stroke: #444444;
   --accent: #FF6F61;
-  --code:#3D3F47;
-  --color-fg-default:#c9d1d9;
+  --code: #3D3F47;
+  --color-fg-default: #c9d1d9;
 
   /* fonts */
   --decorative: "monospace", "Montserrat", sans-serif;
@@ -40,19 +39,27 @@
 
 
 }
-h1,h2,h3,h4,h5,h6{
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--decorative);
   font-weight: 400;
   line-height: 1.2;
-  color:var(--wh);
-}
-p{
-  color:var(--color-fg-default);
+  color: var(--wh);
 }
 
-h2{
-  font-size:var(--h2);
+p {
+  color: var(--color-fg-default);
 }
-.blog-entries{
+
+h2 {
+  font-size: var(--h2);
+}
+
+.blog-entries {
   flex: 1;
 }
