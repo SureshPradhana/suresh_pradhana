@@ -50,9 +50,8 @@
 </div>
 
 <style>
-        h1 {
-                color: var(--red);
-                font-size: var(--h1);
+        p {
+                margin: 1rem 0;
         }
         .logo-wrapper {
                 display: flex;

@@ -96,14 +96,8 @@
 </div>
 
 <style>
-	h1 {
-		color: var(--red);
-		font-size: var(--h1);
-	}
-	p,
-	a,
-	li {
-		font-size: 1rem;
+	div > p {
+		margin: 1rem 0;
 	}
 	ul {
 		list-style: circle;
@@ -111,12 +105,13 @@
 		padding: 0;
 	}
 	a {
-		color: var(--blue);
+		color: #716189;
 		font-weight: bold;
+		padding: 0.2rem;
 	}
 	a:hover {
-		background-color: var(--blue);
-		color: var(--white);
+		background-color: #716189;
+		color: #1a1a1a;
 	}
 	a::after {
 		content: "]";

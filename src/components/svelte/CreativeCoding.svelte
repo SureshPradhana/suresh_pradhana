@@ -15,7 +15,7 @@
 			name: "sphere",
 			link: "creative_coding/sphere",
 			description: "A sphere with a Threejs",
-			imageurl:sphere,
+			imageurl: sphere,
 		},
 		// {
 		// 	name: "wall Gallery",
@@ -24,11 +24,11 @@
 		// 	imageurl: walldrawing11,
 		// },
 		{
-			name:"moon",
-			link:"creative_coding/moon",
-			description:"A moon with canvas Sketch",
-			imageurl:moon,
-		}
+			name: "moon",
+			link: "creative_coding/moon",
+			description: "A moon with canvas Sketch",
+			imageurl: moon,
+		},
 	];
 </script>
 
@@ -45,13 +45,13 @@
 	</div>
 </div>
 
-
 <style>
 	.grid-wrapper {
 		display: grid;
 		grid-template-columns: repeat(4, 1fr);
 		grid-auto-flow: column;
 		grid-gap: 1rem;
+		margin: 1rem 0;
 	}
 	.grid-item {
 		width: 100%;
@@ -67,10 +67,7 @@
 	img:hover {
 		transform: scale(1.1);
 	}
-	h1 {
-		color: var(--red);
-		font-size: var(--h1);
-	}
+
 	p,
 	a,
 	li {
@@ -96,7 +93,7 @@
 	@media (max-width: 600px) {
 		.grid-wrapper {
 			grid-template-columns: repeat(2, auto);
-			grid-template-rows:repeat(2, auto);
+			grid-template-rows: repeat(2, auto);
 		}
 	}
 </style>
