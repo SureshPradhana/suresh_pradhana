@@ -1,7 +1,3 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 :root {
 	/* colors */
 	--bg: #1c1c1c;
@@ -22,6 +18,7 @@
 	--accent: #FF6F61;
 	--code: #3D3F47;
 	--color-fg-default: #c9d1d9;
+	--red: #FF6f61;
 
 	/* fonts */
 	--decorative: "monospace", "Montserrat", sans-serif;
@@ -42,11 +39,6 @@
 	--small: calc(var(--base-size)/ var(--scale));
 
 
-}
-
-/* add border box sizing to the page */
-html {
-	box-sizing: border-box;
 }
 
 *,
@@ -82,45 +74,21 @@ time {
 	color: #605d5d;
 }
 
-body {
-	font-family: var(--decorative);
-	font-size: var(--h4);
-	line-height: 1.5;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-weight: 600;
-	border-bottom: 1px solid var(--stroke);
-
-	padding: 0.5rem 0;
-}
-
-li {
-	padding: 0.1rem 0;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
 p,
-pre,
-code,
-blockquote {
-	margin-bottom: var(--base-size);
-
+li,
+ol,
+pre {
+	font-size: 16px;
+	line-height: 1.2;
+	letter-spacing: 1px;
+	word-spacing: 1px;
+	font-weight: 400;
+	margin: 0.5rem 0;
 }
 
+/* add border box sizing to the page */
 h1 {
 	font-size: var(--h1);
-
 }
 
 h2 {
@@ -132,29 +100,39 @@ h3 {
 }
 
 h4 {
-	font-size: var(--h4);
+	font-size: var(--h4)
 }
 
 h5 {
-	font-size: var(--h5);
+	font-size: var(--h5)
 }
 
 h6 {
 	font-size: var(--h6);
 }
 
-p {
-	color: var(--color-fg-default);
-	margin: 1rem 0;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
 }
 
 strong {
-	font-weight: 800;
+	font-weight: 600;
 }
 
-pre {
-	padding: 1rem;
-	border-radius: 5px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+	margin: 0.7rem 0;
 }
 
 
@@ -167,14 +145,24 @@ blockquote {
 
 code {
 	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-	padding: 2px 5px;
 	border-radius: 5px;
-	background: var(--code);
+	padding: 3px 3px;
+	background: #151515;
 	font-size: var(--h4);
+	color: var(--accent)
 }
 
 pre code {
+	padding: none;
 	background: none;
+	color: white;
+	padding: 0 0;
+}
+
+pre {
+	padding: 1rem;
+	border-radius: 5px;
+	background: #151515 !important;
 }
 
 ol {
@@ -185,7 +173,6 @@ ol {
 
 ol ul li {
 	font-size: var(--h4);
-	color: var(--color-fg-default);
 }
 
 a {

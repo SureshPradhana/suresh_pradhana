@@ -87,7 +87,9 @@
 	<ul>
 		{#each projects as project (project)}
 			<li>
-				<a href={project.link}>{project.name}</a>: {project.description}
+				<p>
+					<a href={project.link}>{project.name}</a>: {project.description}
+				</p>
 			</li>
 		{/each}
 	</ul>
