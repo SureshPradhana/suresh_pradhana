@@ -163,6 +163,7 @@ pre {
 	padding: 1rem;
 	border-radius: 5px;
 	background: #151515 !important;
+	position: relative;
 }
 
 ol {
@@ -189,4 +190,41 @@ th,
 td {
 	border: 1px solid var(--stroke);
 	padding: 0.5rem;
+}
+
+.code-fullscreen {
+	color: red;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #fff;
+	z-index: 1000;
+	padding: 20px;
+	box-sizing: border-box;
+	margin: 0;
+	overflow: hidden;
+}
+
+.expand-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	background-color: transparent;
+	border: none;
+	color: #333;
+	cursor: pointer;
+	/* Ensure it's above the code block */
+}
+
+.copy-button {
+	position: absolute;
+	top: 10px;
+	right: 40px;
+	background-color: transparent;
+	border: none;
+	color: #333;
+	cursor: pointer;
+	/* Ensure it's above the code block */
 }
