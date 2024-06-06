@@ -2,7 +2,7 @@
 	let projects = [
 		{
 			name: "NotesHub",
-			link: "https://notes-gui.vercel.app/",
+			link: "https://noteshub.tech/",
 			description:
 				"Your digital workspace for notes, lists, and flashcards, all in one place, with Markdown support for easy formatting",
 		},
