@@ -3,12 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import Projects from "../components/svelte/Projects.svelte";
 import Certifications from "../components/svelte/Certifications.svelte";
 import Hero from "../components/svelte/Hero.svelte";
+import Tools from "../components/svelte/Tools.svelte";
 import "../styles/global.css";
 ---
 
 <Layout title="Welcome to Astro.">
 	<div class="projects-wrapper">
 		<Hero />
+		<Tools client:load/>
 		<Projects />
 		<Certifications />
 	</div>
