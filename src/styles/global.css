@@ -2,6 +2,11 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
+}
+
 :root {
   /* colors */
   --bg: #1c1c1c;
@@ -17,7 +22,6 @@
   --mocha: #7f4f24;
   --tan: #ddb892;
   --blue: #3e80b6;
-  --background: #1c1c1c;
   --stroke: #444444;
   --accent: #FF6F61;
   --code: #3D3F47;
@@ -41,12 +45,22 @@
   --h5: calc(var(--h6)*var(--scale));
   --h6: var(--base-size);
   --small: calc(var(--base-size)/ var(--scale));
+  --background: #1c1c1c;
+}
 
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 
 }
 
-/* add border box sizing to the page */
 html {
+  font-family: 'Helvetica', system-ui, sans-serif, Arial, sans-serif;
+  background: var(--background);
+  background-size: 224px;
+  color: #fff;
+  font-size: 16px;
   box-sizing: border-box;
 }
 
@@ -79,12 +93,6 @@ h6 {
   font-size: var(--h6);
 }
 
-*,
-*:before,
-*:after {
-  box-sizing: inherit;
-
-}
 
 body {
   background-color: var(--background);
@@ -111,10 +119,13 @@ body {
 time {
   color: #605d5d;
 }
+.time{
+  color: #605d5d;
+}
 
 p {
   font-size: 16px;
-  line-height: 1.2;
+  line-height: 1;
   letter-spacing: 1px;
   word-spacing: 1px;
   font-weight: 400;

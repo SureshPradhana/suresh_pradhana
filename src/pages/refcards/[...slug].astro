@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
-const { Content } = await post.render();
+const { Content,remarkPluginFrontmatter } = await post.render();
 
 import PathUi from "../../components/svelte/PathUi.svelte";
 ---
@@ -46,6 +46,7 @@ container?.appendChild(script);
 		<time datetime={post.data.date.toISOString()}>
 			{post.data.date.toDateString()}
 		</time>
+		<span class="time">{remarkPluginFrontmatter.minutesRead}</span>
 		<Content />
 	</div>
 	<h2>Comments</h2>
@@ -71,8 +72,11 @@ container?.appendChild(script);
 		padding: 0.2rem 0;
 		line-height: 1;
 	}
+	.time{
+		color: #605d5d;
+		margin-left:1rem;
+	}
 	/* styles/markdown.css */
-
 
 </style>
 
