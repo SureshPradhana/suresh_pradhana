@@ -7,6 +7,7 @@
   src: url('/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
 }
 
+
 :root {
   /* colors */
   --bg: #1c1c1c;
@@ -128,7 +129,6 @@ time {
 
 p {
   font-size: 16px;
-  line-height: 1;
   letter-spacing: 1px;
   word-spacing: 1px;
   font-weight: 400;
