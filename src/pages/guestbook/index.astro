@@ -1,0 +1,127 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+// import { db, GuestBook } from "astro:db";
+import { turso } from '../../turso';
+const guestBook = await turso.execute("SELECT * FROM guestbook ORDER BY timestamp DESC");
+import { getSession } from "auth-astro/server";
+import Signin from "../../components/svelte/Signin.svelte";
+const session = await getSession(Astro.request);
+import Avatar from "../../components/svelte/Avatar.svelte";
+// Watch for POST requests
+if (Astro.request.method === "POST" && session) {
+  // Parse form data
+  let formData = await Astro.request.formData();
+  let author = session.user.name;
+  let mail = session.user.email;
+  let avatar = session.user?.image;
+  let content = formData.get("content");
+  let special = formData.get("special");
+
+  if (!special) {
+    // Validate that author and content are both of type 'string'
+    try {
+    if (typeof author === "string" && typeof content === "string") {
+      // Insert data into the database
+await turso.execute({
+  sql: "INSERT INTO guestbook (author, content, mail, avatar) VALUES (:author, :content, :mail, :avatar)",
+  args: { author, content, mail, avatar },
+});
+      return Astro.redirect("/guestbook");
+    } else {
+      throw new Error("Invalid input: Author and content must be strings.");
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+   
+  }
+}
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="wrapper">
+    <div>
+    <h1 class="mb-4">Guestbook</h1>
+    {
+      session ? (
+        <>
+          <form class="relative max-w-[500px]" method="POST">
+            <input
+              aria-label="Your message"
+              placeholder="Your message..."
+              type="text"
+              required=""
+              class="pl-4 pr-32 py-2 mt-1 focus:ring-white-300 focus:border-white-300 block w-full rounded-md bg-neutral-800 text-neutral-100"
+              name="content"
+            />
+            <label for="special">
+              <input id="special" name="special" style="display:none" />
+            </label>
+            <button
+              class="flex items-center justify-center absolute right-1 top-1 px-2 py-1 font-medium h-8 bg-neutral-700 text-neutral-100 rounded w-16"
+              type="submit"
+            >
+              Sign
+            </button>
+          </form>
+          <button class="text-xs text-neutral-300 mt-2 mb-6" id="logout">
+            Sign out
+          </button>
+        </>
+      ) : (
+        <Signin id={"login"} />
+      )
+    }
+
+    <script>
+      const setupAuthButtons = async () => {
+        const { signIn, signOut } = await import("auth-astro/client");
+
+        const loginButton = document.querySelector("#login");
+        const logoutButton = document.querySelector("#logout");
+
+        if (loginButton) {
+          loginButton.addEventListener("click", () => signIn("github"));
+        }
+
+        if (logoutButton) {
+          logoutButton.addEventListener("click", () => signOut());
+        }
+      };
+
+      setupAuthButtons();
+    </script>
+    <dl>
+      {
+        guestBook.rows
+          .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+          .map(({ author, content, mail,avatar,timestamp }) => (
+            <Avatar name={author} comment={content} imageUrl={avatar} />
+          ))
+      }
+    </dl>
+  </div>
+  </div>
+</Layout>
+<style>
+   
+	main {
+		margin: auto;
+		padding: 1rem;
+		width: 800px;
+		max-width: calc(100% - 2rem);
+		color: white;
+		font-size: 20px;
+		line-height: 1.6;
+	}
+ 
+  .wrapper{
+		margin:0.5rem 0 ;
+display: flex;
+		flex-direction: column;
+		flex:1 0 auto;
+  }
+  </style>

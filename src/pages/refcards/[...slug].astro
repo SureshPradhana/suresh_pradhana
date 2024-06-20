@@ -2,22 +2,23 @@
 import { getCollection } from "astro:content";
 import Bloglayout from "../../layouts/BlogLayout.astro";
 import "../../styles/markdown.css";
-export async function getStaticPaths() {
-	const refPosts = await getCollection("refcards");
-
-	return refPosts.map((post) => {
-		return {
-			params: { slug: post.slug },
-			props: { post },
-		};
-	});
-}
-
-const { post } = Astro.props;
-const { Content,remarkPluginFrontmatter } = await post.render();
-
 import PathUi from "../../components/svelte/PathUi.svelte";
+import { getEntry } from "astro:content";
+// 1. Get the slug from the incoming server request
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
+}
+// 2. Query for the entry directly using the request slug
+const post = await getEntry("refcards", slug);
+// 3. Redirect if the entry does not exist
+if (post === undefined) {
+  return Astro.redirect("/404");
+}
+// 4. (Optional) Render the entry to HTML in the template
+const { Content,remarkPluginFrontmatter } = await post.render();
 ---
+
 <script>
 const script = document.createElement("script");
 const container = document.querySelector("#utterances-container"); // your id in your html above
