@@ -19,6 +19,7 @@
     "@libsql/client": "^0.6.2",
     "@svelte-plugins/tooltips": "^3.0.1",
     "astro": "^4.1.2",
+    "astro-robots-txt": "^1.0.0",
     "auth-astro": "^4.1.2",
     "canvas-sketch": "^0.7.7",
     "canvas-sketch-cli": "^1.11.21",
