@@ -1,0 +1,83 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import Readings from "../../components/svelte/Readings.svelte";
+let pocketData = null;
+let groupedData = [];
+
+async function fetchData() {
+    const url = "https://getpocket.com/v3/get";
+    const options = {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "X-Accept": "application/json",
+        },
+        body: JSON.stringify({
+            consumer_key: import.meta.env.POCKET_CONSUMER_KEY,
+            access_token: import.meta.env.POCKET_ACCESS_TOKEN,
+            tag: "portfolio",
+        }),
+    };
+
+    try {
+        const response = await fetch(url, options);
+        if (!response.ok) {
+            throw new Error("Network response was not ok");
+        }
+        return await response.json();
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return null;
+    }
+}
+
+try {
+    let data = await fetchData();
+    pocketData = data.list;
+    groupDataByDate();
+} catch (error) {
+    console.error("Error fetching data:", error);
+}
+
+function groupDataByDate() {
+    if (!pocketData) return;
+
+    const groupedByDate = {};
+    Object.keys(pocketData).forEach((itemId) => {
+        const timestamp = parseInt(pocketData[itemId].time_added);
+        const date = new Date(timestamp * 1000).toISOString().substr(0, 10); // Get date in YYYY-MM-DD format
+        if (!groupedByDate[date]) {
+            groupedByDate[date] = [];
+        }
+        groupedByDate[date].push(pocketData[itemId]);
+    });
+
+    groupedData = Object.keys(groupedByDate).map((date) => ({
+        date,
+        items: groupedByDate[date],
+    }));
+}
+---
+
+<Layout title="Welcome to Astro.">
+    <div class="wrapper">
+        <Readings blogs={groupedData} />
+    </div>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1.2rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .wrapper {
+        flex: 1 0 auto;
+        margin: 0.5rem 0;
+    }
+</style>
