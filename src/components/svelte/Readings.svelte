@@ -61,7 +61,11 @@ function isToday(date) {
                         <div class="wrapper mx-0 my-3">
                             <div class="flex flex-row justify-between">
                                 <h3 class="">
-                                    {item.given_title}
+                                    {#if item.given_title == ""}
+                                        {item.resolved_title}
+                                    {:else}
+                                        {item.given_title}
+                                    {/if}
                                 </h3>
                                 <a
                                     href={item.given_url}
