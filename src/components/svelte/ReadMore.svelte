@@ -9,7 +9,7 @@
             <div class="post">
                 <div class="flex justify-between items-baseline">
                     <div>
-                        <h3 class="text-[14px]">
+                        <h3 class="text-[14px] m-2">
                             <a
                                 href={`/refcards/${post.slug}`}
                                 class="text-gray-300 border-none font-thin"
