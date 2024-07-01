@@ -1,3 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import ReadMore from "../components/svelte/ReadMore.svelte"
+const refPosts = await getCollection("refcards");
+refPosts.sort((a, b) => {
+	return new Date(b.data.date) - new Date(a.data.date);
+});
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -11,6 +19,10 @@
 			<a id="backButton" href="">&larr; Back</a>
 		</nav>
 		<slot />
+		<ReadMore {refPosts} />
+
+		<h2>Comments</h2>
+		<div id="utterances-container"></div>
 		<p class="feed">
 			<a href="./rss.xml">
 				<span role="img" aria-label="satallite dish">
@@ -29,8 +41,24 @@
 				<span class="link-text">RSS</span>
 			</a>
 		</p>
-
 		<script>
+			const script = document.createElement("script");
+			const container = document.querySelector("#utterances-container"); // your id in your html above
+
+			// Replace the value of each key with yours
+			Object.entries({
+			  src: "https://utteranc.es/client.js",
+			  repo: "SureshPradhana/suresh_pradhana",
+			  "issue-term": "pathname",
+			  label: "comments💬", // omit this line, if you don't need label
+			  theme: "github-dark",
+			  crossorigin: "anonymous",
+			}).forEach(([key, value]) => {
+			  script.setAttribute(key, value);
+			});
+
+
+			container?.appendChild(script);
 			document.addEventListener("DOMContentLoaded", function () {
 				const backButton = document.getElementById("backButton");
 				let ref = window.location.href

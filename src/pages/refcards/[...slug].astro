@@ -19,25 +19,7 @@ if (post === undefined) {
 const { Content,remarkPluginFrontmatter } = await post.render();
 ---
 
-<script>
-const script = document.createElement("script");
-const container = document.querySelector("#utterances-container"); // your id in your html above
 
-// Replace the value of each key with yours
-Object.entries({
-  src: "https://utteranc.es/client.js",
-  repo: "SureshPradhana/suresh_pradhana",
-  "issue-term": "pathname",
-  label: "comments💬", // omit this line, if you don't need label
-  theme: "github-dark",
-  crossorigin: "anonymous",
-}).forEach(([key, value]) => {
-  script.setAttribute(key, value);
-});
-
-
-container?.appendChild(script);
-</script>
 
 
 <Bloglayout>
@@ -50,9 +32,7 @@ container?.appendChild(script);
 		<span class="time">{remarkPluginFrontmatter.minutesRead}</span>
 		<Content />
 	</div>
-	<h2>Comments</h2>
 
-<div id="utterances-container"></div>
 </Bloglayout>
 
 <style>
@@ -88,34 +68,6 @@ container?.appendChild(script);
 	}
 	/* styles/markdown.css */
 
+
 </style>
-
-<script>
- import { icons } from 'feather-icons';
- document.addEventListener('DOMContentLoaded', () => {
-    const codeBlocks = document.querySelectorAll('pre');
-
-  codeBlocks.forEach(element => {
-    const expandButton = document.createElement('button');
-    expandButton.innerHTML = icons.maximize.toSvg({ class: 'feather', width: '18px', height:
-	'18px' });
-    expandButton.classList.add('expand-button');
-    const copyButton = document.createElement('button');
-    copyButton.innerHTML = icons.copy.toSvg({ class: 'feather', width: '18px', height:
-	'18px' });
-    copyButton.classList.add('copy-button');
-	element.appendChild(expandButton);
-	element.appendChild(copyButton);
-
-	copyButton.addEventListener('click', () => {
-	  navigator.clipboard.writeText(element.querySelector('code').innerText);
-	});
-
-    expandButton.addEventListener('click', () => {
-      element.classList.toggle('code-fullscreen');
-      document.body.classList.toggle('body-no-scroll', element.classList.contains('code-fullscreen'));
-    });
-  });
-});
-
-</script>
+<script src="./script.js"></script>

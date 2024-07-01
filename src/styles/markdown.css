@@ -121,28 +121,24 @@ h6 {
 	font-size: var(--h6);
 }
 
-h1,
+.blog-container h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
 	font-weight: 600;
+	margin: 1.5rem 0 0.7rem 0;
 }
 
 strong {
 	font-weight: 600;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
+
 p,
 li {
-	margin: 0.7rem 0;
+	margin: 0.7rem 0 0.7rem 0;
 }
 
 
