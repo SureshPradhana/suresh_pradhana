@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import "../../styles/global.css";
+import {Image} from "astro:assets";
+import ImageGallery from "@components/ImageGallery.astro";
+
+const imageUrls = import.meta.glob<{ default: ImageMetadata }>('/src/assets/digitalart/*.{jpeg,jpg,png,gif}');
+console.log(imageUrls);
+---
+<Layout title="Welcome to Astro.">
+    <div class="wrapper">
+	<ImageGallery imageUrls={imageUrls}/>
+    </div>
+</Layout>
+
+<style>
+    main {
+        margin: auto;
+        padding: 1.2rem;
+        width: 800px;
+        max-width: calc(100% - 2rem);
+        color: white;
+        font-size: 20px;
+        line-height: 1.6;
+    }
+    .wrapper {
+        flex: 1 0 auto;
+        margin: 0.5rem 0;
+    }
+</style>
+
+
