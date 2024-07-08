@@ -105,6 +105,9 @@ importers:
       '@types/sanitize-html':
         specifier: ^2.9.0
         version: 2.11.0
+      svelte-hamburgers:
+        specifier: ^4.2.0
+        version: 4.2.0(svelte@4.2.12)
 
 packages:
 
@@ -4290,6 +4293,11 @@ packages:
 
   sv-tooltip@0.1.7:
     resolution: {integrity: sha512-jKYccON++C8rHAACQ1gx+BEcYxv5wPE2ijgts6kLBxbDVgRWUkbO0EK7WOxzRFKq7uT4sxOzSg7fi/UTMNAUzA==}
+
+  svelte-hamburgers@4.2.0:
+    resolution: {integrity: sha512-6Iq0uHXHeQZMvsn6Ft84qdSpf+PfmhwdyuSVoJeGHG6UfazB5ffJoMmahs9y9THAtvnBl+Hzus5BOy80PzWy0w==}
+    peerDependencies:
+      svelte: ^3.46.4 || ^4.0.0
 
   svelte-hmr@0.15.3:
     resolution: {integrity: sha512-41snaPswvSf8TJUhlkoJBekRrABDXDMdpNpT2tfHIv4JuhgvHqLMhEPGtaQn0BmbNSTkuz2Ed20DF2eHw0SmBQ==}
@@ -9847,6 +9855,10 @@ snapshots:
   supports-preserve-symlinks-flag@1.0.0: {}
 
   sv-tooltip@0.1.7: {}
+
+  svelte-hamburgers@4.2.0(svelte@4.2.12):
+    dependencies:
+      svelte: 4.2.12
 
   svelte-hmr@0.15.3(svelte@4.2.12):
     dependencies:
