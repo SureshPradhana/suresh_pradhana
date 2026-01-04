@@ -1,3 +1,4 @@
+// src/lib/turso.js (or wherever your client is)
 import { createClient } from "@libsql/client/web";
 
 export const turso = createClient({
