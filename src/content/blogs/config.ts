@@ -1,7 +1,7 @@
 import { defineCollection, z } from "astro:content";
 
 export const collection = {
-    refcards: defineCollection({
+    blogs: defineCollection({
         schema: z.object({
             title: z.string(),
             slug: z.string(),

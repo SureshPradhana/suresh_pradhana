@@ -5,12 +5,19 @@ import "../../styles/markdown.css";
 import PathUi from "../../components/svelte/PathUi.svelte";
 import { getEntry } from "astro:content";
 // 1. Get the slug from the incoming server request
+// For a "catch-all" route, slug can be either a string or an array of strings.
 const { slug } = Astro.params;
+
+// If slug is missing (e.g. user visits /blogs/), redirect to the blogs index page
 if (slug === undefined) {
-  throw new Error("Slug is required");
+  return Astro.redirect("/blogs");
 }
+
+// Normalize slug to a string if it was provided as an array
+const normalizedSlug = Array.isArray(slug) ? slug.join("/") : slug;
+
 // 2. Query for the entry directly using the request slug
-const post = await getEntry("refcards", slug);
+const post = await getEntry("blogs", normalizedSlug);
 // 3. Redirect if the entry does not exist
 if (post === undefined) {
   return Astro.redirect("/404");
@@ -23,7 +30,7 @@ const { Content,remarkPluginFrontmatter } = await post.render();
 
 
 <Bloglayout>
-	<PathUi path={["Home","RefCards", post.data.slug]} />
+	<PathUi path={["Home","Blogs", post.data.slug]} />
 	<div class="blog-container">
 		<h1 class="heading">{post.data.title}</h1>
 		<time datetime={post.data.date.toISOString()}>

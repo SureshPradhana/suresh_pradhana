@@ -149,9 +149,15 @@
                 {#each tools as tool (tool)}
                         <div
                                 class="image-container"
+                                role="button"
+                                tabindex="0"
                                 on:mouseover={(event) =>
                                         showTooltip(event, tool)}
                                 on:mouseleave={(event) =>
+                                        hideTooltip(event, tool)}
+                                on:focus={(event) =>
+                                        showTooltip(event, tool)}
+                                on:blur={(event) =>
                                         hideTooltip(event, tool)}
                         >
                                 <img
