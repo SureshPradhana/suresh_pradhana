@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import "../styles/global.css";
 import "../styles/blog.css";
-const refPosts = await getCollection("refcards");
+const refPosts = await getCollection("blogs");
 refPosts.sort((a, b) => {
 	return new Date(b.data.date) - new Date(a.data.date);
 });
@@ -11,7 +11,7 @@ import PathUi from "../components/svelte/PathUi.svelte";
 ---
 
 <Layout>
-	<PathUi path={["Home", "RefCards"]} />
+	<PathUi path={["Home", "Blogs"]} />
 	<section class="blog-entries">
 		{
 			refPosts.map((post) => {
@@ -24,7 +24,7 @@ import PathUi from "../components/svelte/PathUi.svelte";
 							{post.data.date.toDateString()}
 						</time>
 						<p class="description">{post.data.description}</p>
-						<a href={`/refcards/${post.slug}`}>Read More</a>
+						<a href={`/blogs/${post.slug}`}>Read More</a>
 					</div>
 				);
 			})
@@ -32,7 +32,7 @@ import PathUi from "../components/svelte/PathUi.svelte";
 	</section>
 
 	<p class="feed">
-		<a href="/refcards/rss.xml">
+		<a href="/blogs/rss.xml">
 			<span role="img" aria-label="satallite dish">
 				<svg
 					class="inline-block w-4 h-4"
@@ -46,7 +46,7 @@ import PathUi from "../components/svelte/PathUi.svelte";
 					></path></svg
 				>
 			</span>
-			<span class="link-text">RefCards RSS</span>
+			<span class="link-text">Blogs RSS</span>
 		</a>
 	</p>
 </Layout>

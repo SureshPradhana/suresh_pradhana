@@ -11,7 +11,7 @@
                     <div>
                         <h3 class="text-[14px] m-2">
                             <a
-                                href={`/refcards/${post.slug}`}
+                                href={`/blogs/${post.slug}`}
                                 class="text-gray-300 border-none font-thin"
                                 >{post.data.title}</a
                             >
@@ -26,7 +26,7 @@
             </div>
         {/each}
         <div class="flex justify-end">
-            <a href="/refcards" class="">View All</a>
+            <a href="/blogs" class="">View All</a>
         </div>
     </section>
 </div>

@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import ReadMore from "../components/svelte/ReadMore.svelte"
-const refPosts = await getCollection("refcards");
+const refPosts = await getCollection("blogs");
 refPosts.sort((a, b) => {
 	return new Date(b.data.date) - new Date(a.data.date);
 });
