@@ -2,7 +2,7 @@
 	let projects = [
 		{
 			name: "NotesHub",
-			link: "https://noteshub.tech/",
+			link: "https://notes-gui.vercel.app/",
 			description:
 				"Your digital workspace for notes, lists, and flashcards, all in one place, with Markdown support for easy formatting",
 		},
@@ -80,10 +80,7 @@
 
 <div>
 	<h1>Projects!</h1>
-	<p>
-		Here are some semi-completed tech projects I worked on during the
-		process of learning
-	</p>
+	<p>Here are some tech projects I built</p>
 	<ul>
 		{#each projects as project (project)}
 			<li>

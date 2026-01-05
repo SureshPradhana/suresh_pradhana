@@ -20,7 +20,7 @@
                         tooltipVisible: false,
                 },
                 {
-                        icon_slug: "css3",
+                        icon_slug: "css",
                         tooltipVisible: false,
                 },
                 {
@@ -116,10 +116,6 @@
                         tooltipVisible: false,
                 },
                 {
-                        icon_slug: "amazonwebservices",
-                        tooltipVisible: false,
-                },
-                {
                         icon_slug: "Three.js",
                         tooltipVisible: false,
                 },
@@ -155,10 +151,8 @@
                                         showTooltip(event, tool)}
                                 on:mouseleave={(event) =>
                                         hideTooltip(event, tool)}
-                                on:focus={(event) =>
-                                        showTooltip(event, tool)}
-                                on:blur={(event) =>
-                                        hideTooltip(event, tool)}
+                                on:focus={(event) => showTooltip(event, tool)}
+                                on:blur={(event) => hideTooltip(event, tool)}
                         >
                                 <img
                                         height="32"
