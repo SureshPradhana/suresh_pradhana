@@ -2,6 +2,7 @@
   "name": "suresh-pradhana",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "pnpm@8.6.6",
   "scripts": {
     "astro": "astro",
     "dev": "astro dev",
