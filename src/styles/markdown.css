@@ -1,124 +1,121 @@
 :root {
-	/* colors */
-	--bg: #1c1c1c;
-	--lbg: #444444;
-	--or: #26292c;
-	--wh: #f3f4f6;
-	--time: #525762;
-	--white: #ffffff;
-	--green: #749d4c;
-	--coffee: #43281c;
-	--vanilla: #f1e3d3;
-	--lemon: #fbf2c0;
-	--mocha: #7f4f24;
-	--tan: #ddb892;
-	--blue: #3e80b6;
-	--background: #1c1c1c;
-	--stroke: #444444;
-	--accent: #FF6F61;
-	--code: #3D3F47;
-	--color-fg-default: #c9d1d9;
-	--red: #FF6f61;
+  /* colors */
+  --bg: #1c1c1c;
+  --lbg: #444444;
+  --or: #26292c;
+  --wh: #f3f4f6;
+  --time: #525762;
+  --white: #ffffff;
+  --green: #749d4c;
+  --coffee: #43281c;
+  --vanilla: #f1e3d3;
+  --lemon: #fbf2c0;
+  --mocha: #7f4f24;
+  --tan: #ddb892;
+  --blue: #3e80b6;
+  --background: #1c1c1c;
+  --stroke: #444444;
+  --accent: #ff6f61;
+  --code: #3d3f47;
+  --color-fg-default: #c9d1d9;
+  --red: #ff6f61;
 
-	/* fonts */
-	--decorative: "monospace", "Montserrat", sans-serif;
-	--sans: "monospace", "Open Sans", sans-serif;
+  /* fonts */
+  --decorative: "monospace", "Montserrat", sans-serif;
+  --sans: "monospace", "Open Sans", sans-serif;
 
-	/* font scale */
-	--base-size: 0.6rem;
-	--scale: 1.25;
-	--h6: var(--base-size);
-	--xl: calc(var(--h1)*var(--scale)*var(--scale));
-	--lg: calc(var(--h1)*var(--scale));
-	--h1: calc(var(--h2)*var(--scale));
-	--h2: calc(var(--h3)*var(--scale));
-	--h3: calc(var(--h4)*var(--scale));
-	--h4: calc(var(--h5)*var(--scale));
-	--h5: calc(var(--h6)*var(--scale));
-	--h6: var(--base-size);
-	--small: calc(var(--base-size)/ var(--scale));
-
-
+  /* font scale */
+  --base-size: 0.6rem;
+  --scale: 1.25;
+  --h6: var(--base-size);
+  --xl: calc(var(--h1) * var(--scale) * var(--scale));
+  --lg: calc(var(--h1) * var(--scale));
+  --h1: calc(var(--h2) * var(--scale));
+  --h2: calc(var(--h3) * var(--scale));
+  --h3: calc(var(--h4) * var(--scale));
+  --h4: calc(var(--h5) * var(--scale));
+  --h5: calc(var(--h6) * var(--scale));
+  --h6: var(--base-size);
+  --small: calc(var(--base-size)/var(--scale));
 }
 
 @font-face {
-	font-family: 'Helvetica';
-	src: url('/fonts/Helvetica-Font/Helvetica.ttf') format('truetype');
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica-Font/Helvetica.ttf") format("truetype");
 }
 
 *,
 *:before,
 *:after {
-	box-sizing: inherit;
-
+  box-sizing: inherit;
 }
 
 body {
-	background-color: var(--background);
-	max-width: 800px;
-	margin: 0 auto;
-	color: #d8dadb;
-	padding: 0.6rem 1.5rem;
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  background-color: var(--background);
+  max-width: 800px;
+  margin: 0 auto;
+  color: #d8dadb;
+  padding: 0.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 p {
-	color: var(--color-fg-default);
+  color: var(--color-fg-default);
 }
 
 .feed a {
-	color: var(--color-fg-default);
-	text-decoration: none;
-	border-bottom: none;
+  color: var(--color-fg-default);
+  text-decoration: none;
+  border-bottom: none;
 }
 
 .feed a:hover {
-	color: white;
-	border-bottom: none;
+  color: white;
+  border-bottom: none;
 }
 
 time {
-	color: #605d5d;
-	font-size: 14px;
+  color: #605d5d;
+  font-size: 14px;
 }
 
 p,
 li,
 ol,
 pre {
-	font-size: 16px;
-	letter-spacing: 1px;
-	word-spacing: 1px;
-	font-weight: 400;
-	margin: 0.5rem 0;
+  font-size: 16px;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+  font-weight: 400;
+  margin: 0.5rem 0;
 }
 
 /* add border box sizing to the page */
 h1 {
-	font-size: var(--h1);
+  font-size: var(--h1);
 }
 
 h2 {
-	font-size: var(--h2);
-	border-bottom: 1px solid #21262d;
+  font-size: var(--h2);
+  border-bottom: 1px solid #21262d;
 }
 
 h3 {
-	font-size: var(--h3);
+  font-size: var(--h3);
 }
 
 h4 {
-	font-size: var(--h4)
+  font-size: var(--h4);
 }
 
 h5 {
-	font-size: var(--h5)
+  font-size: var(--h5);
 }
 
 h6 {
-	font-size: var(--h6);
+  font-size: var(--h6);
 }
 
 .blog-container h1,
@@ -127,110 +124,165 @@ h3,
 h4,
 h5,
 h6 {
-	font-weight: 600;
-	margin: 1.5rem 0 0.7rem 0;
+  font-weight: 600;
+  margin: 1.5rem 0 0.7rem 0;
 }
 
 strong {
-	font-weight: 600;
+  font-weight: 600;
 }
-
 
 p,
 li {
-	margin: 0.7rem 0 0.7rem 0;
+  margin: 0.7rem 0 0.7rem 0;
 }
 
-
 blockquote {
-	border-left: 3px solid #408040;
-	font-style: italic;
-	padding-left: 5px;
-	margin-left: 2px;
+  border-left: 3px solid #408040;
+  font-style: italic;
+  padding-left: 5px;
+  margin-left: 2px;
 }
 
 code {
-	font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-	border-radius: 5px;
-	padding: 3px 3px;
-	background: #151515;
-	font-size: var(--h4);
-	color: var(--accent)
+  font-family:
+    Menlo,
+    Monaco,
+    Lucida Console,
+    Liberation Mono,
+    DejaVu Sans Mono,
+    Bitstream Vera Sans Mono,
+    Courier New,
+    monospace;
+  border-radius: 5px;
+  padding: 3px 3px;
+  background: #151515;
+  font-size: var(--h4);
+  color: var(--accent);
 }
 
 pre code {
-	padding: none;
-	background: none;
-	color: white;
-	padding: 0 0;
+  padding: none;
+  background: none;
+  color: white;
+  padding: 0 0;
 }
 
 pre {
-	padding: 1rem;
-	border-radius: 5px;
-	background: #151515 !important;
-	position: relative;
+  padding: 1rem;
+  border-radius: 5px;
+  background: #151515 !important;
+  position: relative;
 }
 
 ol {
-	margin-left: 2rem;
-	margin-bottom: var(--base-size);
-	list-style-type: decimal;
+  margin-left: 2rem;
+  margin-bottom: var(--base-size);
+  list-style-type: decimal;
 }
 
 ol ul li {
-	font-size: var(--h4);
+  font-size: var(--h4);
 }
 
 a {
-	color: var(--green);
-	border-bottom: 1px solid var(--green);
+  color: var(--green);
+  border-bottom: 1px solid var(--green);
 }
 
 a:hover {
-	color: #ccc;
-	border-bottom: 1px solid #ccc;
+  color: #ccc;
+  border-bottom: 1px solid #ccc;
 }
 
 th,
 td {
-	border: 1px solid var(--stroke);
-	padding: 0.5rem;
+  border: 1px solid var(--stroke);
+  padding: 0.5rem;
 }
 
-.code-fullscreen {
-	color: red;
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100vw;
-	height: 100vh;
-	background-color: #fff;
-	z-index: 1000;
-	padding: 20px;
-	box-sizing: border-box;
-	margin: 0;
-	overflow: hidden;
-}
-
+/* Button positioning */
 .expand-button {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	background-color: transparent;
-	border: none;
-	color: #333;
-	cursor: pointer;
-	/* Ensure it's above the code block */
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  color: #c9d1d9;
+  cursor: pointer;
+  z-index: 10;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .copy-button {
-	position: absolute;
-	top: 10px;
-	right: 40px;
-	background-color: transparent;
-	border: none;
-	color: #333;
-	cursor: pointer;
-	/* Ensure it's above the code block */
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  background-color: transparent;
+  border: none;
+  color: #c9d1d9;
+  cursor: pointer;
+  z-index: 10;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover effects for buttons */
+.expand-button:hover,
+.copy-button:hover {
+  color: #ffffff;
+  opacity: 0.8;
+}
+
+/* Copy button feedback styles */
+.copy-button.copied {
+  color: #10b981 !important;
+  transition: color 0.2s ease;
+}
+
+/* Fullscreen code block styles */
+pre.code-fullscreen {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  max-width: 100vw !important;
+  max-height: 100vh !important;
+  margin: 0 !important;
+  padding: 2rem !important;
+  padding-top: 3rem !important;
+  z-index: 9999 !important;
+  overflow: auto !important;
+  border-radius: 0 !important;
+  background: #151515 !important;
+}
+
+/* Ensure buttons are visible and positioned correctly in fullscreen */
+pre.code-fullscreen .expand-button,
+pre.code-fullscreen .copy-button {
+  position: fixed;
+  top: 10px;
+  z-index: 10000;
+  color: #c9d1d9;
+}
+
+pre.code-fullscreen .expand-button {
+  right: 10px;
+}
+
+pre.code-fullscreen .copy-button {
+  right: 45px;
+}
+
+/* Prevent body scroll when code is fullscreen */
+body.body-no-scroll {
+  overflow: hidden !important;
 }
