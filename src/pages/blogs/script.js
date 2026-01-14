@@ -1,97 +1,79 @@
+import { icons } from "feather-icons";
 
-import { icons } from 'feather-icons';
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("pre").forEach((pre) => {
+    // Prevent double processing
+    if (pre.parentElement.classList.contains("code-wrapper")) return;
 
-document.addEventListener('DOMContentLoaded', () => {
-	const codeBlocks = document.querySelectorAll('pre');
-	
-	codeBlocks.forEach(element => {
-		// Create expand button
-		const expandButton = document.createElement('button');
-		expandButton.innerHTML = icons.maximize.toSvg({
-			class: 'feather',
-			width: '18px',
-			height: '18px'
-		});
-		expandButton.classList.add('expand-button');
-		
-		// Create copy button
-		const copyButton = document.createElement('button');
-		copyButton.innerHTML = icons.copy.toSvg({
-			class: 'feather',
-			width: '18px',
-			height: '18px'
-		});
-		copyButton.classList.add('copy-button');
-		
-		element.appendChild(expandButton);
-		element.appendChild(copyButton);
-		
-		// Copy button with visual feedback
-		copyButton.addEventListener('click', () => {
-			const codeText = element.querySelector('code').innerText;
-			navigator.clipboard.writeText(codeText);
-			
-			// Change icon to checkmark
-			copyButton.innerHTML = icons.check.toSvg({
-				class: 'feather',
-				width: '18px',
-				height: '18px'
-			});
-			copyButton.classList.add('copied');
-			
-			// Reset after 2 seconds
-			setTimeout(() => {
-				copyButton.innerHTML = icons.copy.toSvg({
-					class: 'feather',
-					width: '18px',
-					height: '18px'
-				});
-				copyButton.classList.remove('copied');
-			}, 2000);
-		});
-		
-		// Expand button with proper fullscreen
-		expandButton.addEventListener('click', () => {
-			const isFullscreen = element.classList.contains('code-fullscreen');
-			
-			if (isFullscreen) {
-				// Exit fullscreen
-				element.classList.remove('code-fullscreen');
-				document.body.classList.remove('body-no-scroll');
-				expandButton.innerHTML = icons.maximize.toSvg({
-					class: 'feather',
-					width: '18px',
-					height: '18px'
-				});
-			} else {
-				// Enter fullscreen
-				element.classList.add('code-fullscreen');
-				document.body.classList.add('body-no-scroll');
-				expandButton.innerHTML = icons.minimize.toSvg({
-					class: 'feather',
-					width: '18px',
-					height: '18px'
-				});
-			}
-		});
-	});
-	
-	// Close fullscreen on Escape key
-	document.addEventListener('keydown', (e) => {
-		if (e.key === 'Escape') {
-			const fullscreenBlock = document.querySelector('pre.code-fullscreen');
-			if (fullscreenBlock) {
-				fullscreenBlock.classList.remove('code-fullscreen');
-				document.body.classList.remove('body-no-scroll');
-				const expandButton = fullscreenBlock.querySelector('.expand-button');
-				if (expandButton) {
-					expandButton.innerHTML = icons.maximize.toSvg({
-						class: 'feather',
-						width: '18px',
-						height: '18px'
-					});
-				}
-			}
-		}
-	});
+    /* Wrapper */
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-wrapper";
+
+    /* Toolbar */
+    const toolbar = document.createElement("div");
+    toolbar.className = "code-toolbar";
+
+    const expandButton = document.createElement("button");
+    expandButton.className = "expand-button";
+    expandButton.innerHTML = icons.maximize.toSvg({
+      class: "feather",
+      width: "18",
+      height: "18",
+    });
+
+    const copyButton = document.createElement("button");
+    copyButton.className = "copy-button";
+    copyButton.innerHTML = icons.copy.toSvg({
+      class: "feather",
+      width: "18",
+      height: "18",
+    });
+
+    toolbar.append(expandButton, copyButton);
+
+    /* Wrap DOM */
+    pre.before(wrapper);
+    wrapper.append(toolbar, pre);
+    function handleEsc(e) {
+      if (e.key === "Escape") {
+        const active = document.querySelector(".code-wrapper.code-fullscreen");
+        if (active) {
+          active.classList.remove("code-fullscreen");
+          document.body.classList.remove("body-no-scroll");
+          document.removeEventListener("keydown", handleEsc);
+        }
+      }
+    }
+    copyButton.addEventListener("click", async () => {
+      const code = pre.querySelector("code");
+      await navigator.clipboard.writeText(code.innerText);
+
+      // swap icon to check
+      copyButton.innerHTML = icons.check.toSvg({
+        class: "feather",
+        width: "18",
+        height: "18",
+      });
+
+      // revert back to copy
+      setTimeout(() => {
+        copyButton.innerHTML = icons.copy.toSvg({
+          class: "feather",
+          width: "18",
+          height: "18",
+        });
+      }, 1200);
+    });
+    expandButton.addEventListener("click", () => {
+      const isFullscreen = wrapper.classList.toggle("code-fullscreen");
+
+      document.body.classList.toggle("body-no-scroll", isFullscreen);
+
+      if (isFullscreen) {
+        document.addEventListener("keydown", handleEsc);
+      } else {
+        document.removeEventListener("keydown", handleEsc);
+      }
+    });
+  });
 });

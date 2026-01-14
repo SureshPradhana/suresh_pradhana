@@ -143,6 +143,9 @@ blockquote {
   padding-left: 5px;
   margin-left: 2px;
 }
+.code-wrapper {
+  position: relative;
+}
 
 code {
   font-family:
@@ -162,7 +165,7 @@ code {
 }
 
 pre code {
-  padding: none;
+  padding: 0;
   background: none;
   color: white;
   padding: 0 0;
@@ -172,7 +175,6 @@ pre {
   padding: 1rem;
   border-radius: 5px;
   background: #151515 !important;
-  position: relative;
 }
 
 ol {
@@ -201,88 +203,79 @@ td {
   padding: 0.5rem;
 }
 
-/* Button positioning */
-.expand-button {
+.expand-button,
+.copy-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--color-fg-default);
+}
+
+.code-toolbar {
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: transparent;
-  border: none;
-  color: #c9d1d9;
-  cursor: pointer;
-  z-index: 10;
-  padding: 4px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 10px;
+  z-index: 10;
 }
 
-.copy-button {
-  position: absolute;
-  top: 10px;
-  right: 40px;
-  background-color: transparent;
-  border: none;
-  color: #c9d1d9;
-  cursor: pointer;
-  z-index: 10;
-  padding: 4px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.code-wrapper pre {
+  overflow-x: auto;
 }
 
-/* Hover effects for buttons */
+.code-wrapper.code-fullscreen {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #151515;
+  z-index: 1000;
+  padding-top: 3rem;
+}
+
+.code-wrapper.code-fullscreen pre {
+  height: 100%;
+}
+
+.code-wrapper.code-fullscreen .code-toolbar {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 1001;
+}
+
+.code-wrapper pre {
+  overflow-x: auto;
+  padding-top: 2.5rem;
+}
+
 .expand-button:hover,
 .copy-button:hover {
-  color: #ffffff;
-  opacity: 0.8;
+  color: var(--accent);
 }
 
-/* Copy button feedback styles */
-.copy-button.copied {
-  color: #10b981 !important;
-  transition: color 0.2s ease;
+.code-toolbar {
+  background: linear-gradient(
+    to left,
+    rgba(21, 21, 21, 0.9),
+    rgba(21, 21, 21, 0)
+  );
+  padding: 4px 6px;
+  border-radius: 6px;
 }
 
-/* Fullscreen code block styles */
-pre.code-fullscreen {
-  position: fixed !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  bottom: 0 !important;
-  width: 100vw !important;
-  height: 100vh !important;
-  max-width: 100vw !important;
-  max-height: 100vh !important;
-  margin: 0 !important;
-  padding: 2rem !important;
-  padding-top: 3rem !important;
-  z-index: 9999 !important;
-  overflow: auto !important;
-  border-radius: 0 !important;
-  background: #151515 !important;
+.copy-button .feather {
+  transition:
+    transform 0.15s ease,
+    color 0.15s ease;
 }
 
-/* Ensure buttons are visible and positioned correctly in fullscreen */
-pre.code-fullscreen .expand-button,
-pre.code-fullscreen .copy-button {
-  position: fixed;
-  top: 10px;
-  z-index: 10000;
-  color: #c9d1d9;
+.copy-button:active .feather {
+  transform: scale(0.9);
 }
 
-pre.code-fullscreen .expand-button {
-  right: 10px;
-}
-
-pre.code-fullscreen .copy-button {
-  right: 45px;
-}
-
-/* Prevent body scroll when code is fullscreen */
-body.body-no-scroll {
-  overflow: hidden !important;
+.copy-button .feather-check {
+  color: var(--green);
 }
