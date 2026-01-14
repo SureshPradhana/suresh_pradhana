@@ -1,32 +1,79 @@
+import { icons } from "feather-icons";
 
-import { icons } from 'feather-icons';
-document.addEventListener('DOMContentLoaded', () => {
-	const codeBlocks = document.querySelectorAll('pre');
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("pre").forEach((pre) => {
+    // Prevent double processing
+    if (pre.parentElement.classList.contains("code-wrapper")) return;
 
-	codeBlocks.forEach(element => {
-		const expandButton = document.createElement('button');
-		expandButton.innerHTML = icons.maximize.toSvg({
-			class: 'feather', width: '18px', height:
-				'18px'
-		});
-		expandButton.classList.add('expand-button');
-		const copyButton = document.createElement('button');
-		copyButton.innerHTML = icons.copy.toSvg({
-			class: 'feather', width: '18px', height:
-				'18px'
-		});
-		copyButton.classList.add('copy-button');
-		element.appendChild(expandButton);
-		element.appendChild(copyButton);
+    /* Wrapper */
+    const wrapper = document.createElement("div");
+    wrapper.className = "code-wrapper";
 
-		copyButton.addEventListener('click', () => {
-			navigator.clipboard.writeText(element.querySelector('code').innerText);
-		});
+    /* Toolbar */
+    const toolbar = document.createElement("div");
+    toolbar.className = "code-toolbar";
 
-		expandButton.addEventListener('click', () => {
-			element.classList.toggle('code-fullscreen');
-			document.body.classList.toggle('body-no-scroll', element.classList.contains('code-fullscreen'));
-		});
-	});
+    const expandButton = document.createElement("button");
+    expandButton.className = "expand-button";
+    expandButton.innerHTML = icons.maximize.toSvg({
+      class: "feather",
+      width: "18",
+      height: "18",
+    });
+
+    const copyButton = document.createElement("button");
+    copyButton.className = "copy-button";
+    copyButton.innerHTML = icons.copy.toSvg({
+      class: "feather",
+      width: "18",
+      height: "18",
+    });
+
+    toolbar.append(expandButton, copyButton);
+
+    /* Wrap DOM */
+    pre.before(wrapper);
+    wrapper.append(toolbar, pre);
+    function handleEsc(e) {
+      if (e.key === "Escape") {
+        const active = document.querySelector(".code-wrapper.code-fullscreen");
+        if (active) {
+          active.classList.remove("code-fullscreen");
+          document.body.classList.remove("body-no-scroll");
+          document.removeEventListener("keydown", handleEsc);
+        }
+      }
+    }
+    copyButton.addEventListener("click", async () => {
+      const code = pre.querySelector("code");
+      await navigator.clipboard.writeText(code.innerText);
+
+      // swap icon to check
+      copyButton.innerHTML = icons.check.toSvg({
+        class: "feather",
+        width: "18",
+        height: "18",
+      });
+
+      // revert back to copy
+      setTimeout(() => {
+        copyButton.innerHTML = icons.copy.toSvg({
+          class: "feather",
+          width: "18",
+          height: "18",
+        });
+      }, 1200);
+    });
+    expandButton.addEventListener("click", () => {
+      const isFullscreen = wrapper.classList.toggle("code-fullscreen");
+
+      document.body.classList.toggle("body-no-scroll", isFullscreen);
+
+      if (isFullscreen) {
+        document.addEventListener("keydown", handleEsc);
+      } else {
+        document.removeEventListener("keydown", handleEsc);
+      }
+    });
+  });
 });
-
